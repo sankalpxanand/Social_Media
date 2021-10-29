@@ -1,5 +1,7 @@
 const User = require('../models/user');
 
+//let's keep all the code same as before as there is only one callback function in every action almost - Async Await
+
 module.exports.profile = function(req, res){
     User.findById(req.params.id, function(err, user){
         return res.render('user_profile', {
