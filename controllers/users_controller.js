@@ -85,9 +85,10 @@ module.exports.create = function(req, res){
             })
         }
         else{
+            req.flash('success', 'You have signed up, login to continue!');
             return res.redirect ('back');
         }
-    })
+    });
 }
 //sign in and create a session for the user
 module.exports.createSession = function(req, res){
