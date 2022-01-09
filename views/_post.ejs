@@ -2,10 +2,10 @@
     <p>
         <% if(locals.user && locals.user.id == post.user.id){ %>
             <small>
-                <a class="delete-post-button" href="/posts/destroy/<%= post.id %>">X</a>
+                <a class="delete-post-button" href="/posts/destroy/<%= post.id %>" style="text-decoration: none;">X</a>
             </small>
         <% } %>
-        <%= post.content %>
+        <strong><%= post.content %></strong>
         <br>
         <small>
             <%= post.user.name %>
@@ -15,7 +15,7 @@
             <!-- study about the data attribute -->
         <small>
             <% if (locals.user){ %>
-                <a class="toggle-like-button" data-likes="<%= post.likes.length %>" href="/likes/toggle/?id=<%=post._id%>&type=Post">
+                <a class="toggle-like-button" data-likes="<%= post.likes.length %>" href="/likes/toggle/?id=<%=post._id%>&type=Post" style="text-decoration: none;">
                         <%= post.likes.length %> Likes
                 </a>
             <% }else{ %>
@@ -26,13 +26,13 @@
     <div class="post-comment">
         <% if(locals.user){ %>
             <form action="/comments/create" id="new-comment-form" method="POST">
-                <input type="text" name="content" placeholder="Type here to add comment...">
+                <input type="text" name="content" placeholder="Type here to add comment..." style="background-color: transparent; border: 2px solid black; width: 25%; border-top: 0px; border-left: 0px; border-right: 0px;">
                 <input type="hidden" name="post" value="<%= post._id %>">
-                <input type="submit" value="Add Comment">
+                <input type="submit" value="Add Comment" style="background-color: transparent; border: 2px solid black;">
             </form>
         <% } %>
         <div class="post-comments-list">
-            <ul id="post-comments-<%= post._id %>">
+            <ul id="post-comments-<%= post._id %>" style="list-style: none;">
                 <% for(comment of post.comments){ %>
                     
                     <%- include('_comment') -%>
@@ -40,6 +40,7 @@
                 <% } %>
             </ul>
         </div>
+        <br>
     </div>
 </li>
 

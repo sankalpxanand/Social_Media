@@ -34,7 +34,7 @@
                     console.log(error.responseText);
                 }
             });
-        })
+        });
     }
     //method to create a post in DOM
     let newPostDom = function(post){
@@ -57,7 +57,7 @@
                     <small>
                             
                             <a class="toggle-like-button" data-likes="0" href="/likes/toggle/?id=${post._id}&type=Post">
-                                    0 Likes
+                                0 Likes
                             </a>
                             
                     </small>
@@ -103,8 +103,8 @@
                 error: function(error){
                     console.log(err.responseText);
                 }
-            })
-        })
+            });
+        });
     }
     // loop over all the existing posts on the page (when the window loads for the first time) and call the delete post method on delete link of each, also add AJAX (using the class we've created) to the delete button of each
     let convertPostsToAjax = function(){

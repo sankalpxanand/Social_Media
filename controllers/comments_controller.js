@@ -69,7 +69,7 @@ module.exports.destroy = async function(req, res){
                         comment_id: req.params.id
                     },
                     message: 'Comment deleted'
-                })
+                });
             }
 
             req.flash('success', 'Comment deleted from the post!');

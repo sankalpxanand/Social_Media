@@ -1,18 +1,21 @@
-<link rel="stylesheet" href="/css/home.css">
-<link rel="stylesheet" href="/css/chat_box.css">
+<link rel="stylesheet" href="<%= assetPath('css/home.css') %>">
+<link rel="stylesheet" href="<%= assetPath('css/chat_box.css') %>">
 
 <div id="home-container">
     <section id="feed-post">
-        <h4>Post</h4>
+        <h2>Post</h2>
+        <br>
         <% if(locals.user){ %>
         <form action="/posts/create" id="new-post-form" method="POST">
-            <textarea name="content" cols="30" rows="3" placeholder="Type Here..."></textarea>
-            <input type="submit" value="Post">
+            <textarea name="content" cols="70" rows="5" placeholder="Type Here..." style="background-color: transparent; border: 2px solid black;"></textarea>
+            <input type="submit" value="Post" style="background-color: transparent; border: 2px solid black;">
         </form>
         <% } %>
-    
+        <br>
+        <br>
+        <br>
         <div id="posts-list-container">
-            <ul>
+            <ul style="list-style: none;">
                 <% for(post of posts){ %>
     
                     <%- include('_post') -%>
@@ -23,10 +26,11 @@
     </section>
     
     <section id="user-friends">
-        <h4>Friends</h4>
+        <h2>Friends</h2>
+        <br>
         <% for(u of all_users){ %>
             <p>
-                <a href="/users/profile/<%= u.id %>"><%= u.name%></a>
+                <a href="/users/profile/<%= u.id %>" style="text-decoration: none;"><%= u.name%></a>
             </p>
         <% } %>
     </section>
@@ -34,11 +38,11 @@
 </div>
 
 <!-- importing this script for creating the comments -->
-<script src="/js/home_post_comments.js" ></script>
-<script src="/js/home_posts.js"></script>
+<script src="<%= assetPath('js/home_post_comments.js') %>" ></script>
+<script src="<%= assetPath('js/home_posts.js') %>"></script>
 
 <!-- import the script file for toggle likes, also run it over for the already present posts and comments on the page -->
-<script src="js/toggle_likes.js"></script>
+<script src="<%= assetPath('js/toggle_likes.js') %>"></script>
 <script>
     $('.toggle-like-button').each(function(){
         let self = this;
@@ -46,7 +50,7 @@
     });
 </script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/4.4.0/socket.io.js"></script>
-<script src="/js/chat_engine.js"></script>
+<script src="<%= assetPath('js/chat_engine.js') %>"></script>
 
 <% if (locals.user){ %>
     <script>

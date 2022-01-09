@@ -1,5 +1,8 @@
 body {
+  background: linear-gradient(to right,rgb(211, 107, 128),rgb(224, 75, 75));
   margin: 0;
+  font-family: monospace;
+  font-size: large;
   text-align: center; }
   body #layout-main {
     height: 100%; }
